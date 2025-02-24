@@ -58,7 +58,7 @@ test('TC001_IMDB_WebTest: Verify IMDB search first upcoming moview with actor na
 });
 
 
-test.only('TC002_IMDB_WebTest: Rate 2nd movie appearing on Top box office', async function () {
+test('TC002_IMDB_WebTest: Rate 2nd movie appearing on Top box office', async function () {
   await page.locator("//span[contains(@class,'button') and text()='Menu']").click();
   await page.locator("//a/span[text()='Top Box Office']").click();
   await page.locator("//ul[contains(@class,'compact-list')]/li[2]//a[contains(@class,'title')]").click();
