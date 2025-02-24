@@ -1,4 +1,4 @@
-# Demoblaze Application Automation Using Playwright
+# IMDB UI and PokeAPI Automation Using Playwright
 
 ## Pre-requisites
 
