@@ -47,7 +47,7 @@ const config = {
    navigationTimeout: 10000,
    browserName: 'chromium',
    //...devices['iPad Pro 11 landscape'],
-   headless: true,
+   headless: false,
    screenshot: 'only-on-failure',
    //accepts ssl certs related notifications
    ignoreHTTPSErrors: true,
