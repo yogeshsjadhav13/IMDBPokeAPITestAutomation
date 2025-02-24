@@ -23,9 +23,6 @@ test.beforeEach(async ({ browser }, testInfo) => {
   if (TestCaseName !== "TC001_IMDB_WebTest") {
     context = await browser.newContext();
     page = await context.newPage();
-    await page.goto('https://www.imdb.com/');
-    await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
-    await page.locator("//button[text()='Accept']").click();
   }
 });
 
@@ -62,6 +59,9 @@ test('TC001_IMDB_WebTest: Verify IMDB search first upcoming moview with actor na
 
 
 test('TC002_IMDB_WebTest: Rate 2nd movie appearing on Top box office', async function () {
+  await page.goto('https://www.imdb.com/');
+  await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
+  await page.locator("//button[text()='Accept']").click();
   await page.locator("//span[contains(@class,'button') and text()='Menu']").click();
   await page.locator("//a/span[text()='Top Box Office']").click();
   await page.locator("//ul[contains(@class,'compact-list')]/li[2]//a[contains(@class,'title')]").click();
@@ -77,6 +77,9 @@ test('TC002_IMDB_WebTest: Rate 2nd movie appearing on Top box office', async fun
 
 
 test('TC003_IMDB_WebTest: Open 2nd photo of Danny Trejo from Breaking bad under Top 250 TV shows', async function () {
+  await page.goto('https://www.imdb.com/');
+  await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
+  await page.locator("//button[text()='Accept']").click();
   await page.locator("//span[contains(@class,'button') and text()='Menu']").click();
   await page.locator("//a/span[text()='Top 250 TV Shows']").click();
   await page.locator("//h3[contains(text(),'Breaking Bad')]/parent::a").click();
@@ -93,6 +96,9 @@ test('TC003_IMDB_WebTest: Open 2nd photo of Danny Trejo from Breaking bad under 
 
 
 test('TC004_IMDB_WebTest: Open 3rd name from the celebrities list born yesterday', async function () {
+  await page.goto('https://www.imdb.com/');
+  await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
+  await page.locator("//button[text()='Accept']").click();
   await page.locator("//span[contains(@class,'button') and text()='Menu']").click();
   await page.locator("//a/span[text()='Born Today']").click();
   await page.locator("//button[contains(@data-testid,'selected-input-chip-list-birthday')]").click();
@@ -113,6 +119,9 @@ test('TC004_IMDB_WebTest: Open 3rd name from the celebrities list born yesterday
 
 
 test('TC005_IMDB_WebTest: Click on first description link from the list of celebrities born 40 years ago from today', async function () {
+  await page.goto('https://www.imdb.com/');
+  await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
+  await page.locator("//button[text()='Accept']").click();
   await page.locator("//span[contains(@class,'button') and text()='Menu']").click();
   await page.locator("//a/span[text()='Born Today']").click();
   await page.locator("//button[contains(@data-testid,'selected-input-chip-list-birthday')]").click();
