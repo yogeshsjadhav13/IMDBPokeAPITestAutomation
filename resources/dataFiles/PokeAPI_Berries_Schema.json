@@ -1,0 +1,56 @@
+{
+    "type": "object",
+    "properties": {
+        "firmness": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["name", "url"]
+        },
+        "flavors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "flavor": {
+                        "type": "object",
+                        "properties": {
+                            "name": { "type": "string" },
+                            "url": { "type": "string", "format": "uri" }
+                        },
+                        "required": ["name", "url"]
+                    },
+                    "potency": { "type": "integer" }
+                },
+                "required": ["flavor", "potency"]
+            }
+        },
+        "growth_time": { "type": "integer" },
+        "id": { "type": "integer" },
+        "item": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["name", "url"]
+        },
+        "max_harvest": { "type": "integer" },
+        "name": { "type": "string" },
+        "natural_gift_power": { "type": "integer" },
+        "natural_gift_type": {
+            "type": "object",
+            "properties": {
+                "name": { "type": "string" },
+                "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["name", "url"]
+        },
+        "size": { "type": "integer" },
+        "smoothness": { "type": "integer" },
+        "soil_dryness": { "type": "integer" }
+    },
+    "required": ["firmness", "flavors", "growth_time", "id", "item", "max_harvest", "name", "natural_gift_power", "natural_gift_type", "size", "smoothness", "soil_dryness"]
+}
