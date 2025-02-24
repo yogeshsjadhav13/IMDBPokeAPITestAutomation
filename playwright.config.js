@@ -2,7 +2,7 @@ const { devices } = require('@playwright/test');
 
 const config = {
   testDir: './tests',
-  //retries: 1,
+  retries: 1,
   //by default playwright runs 5 tests parallely
   workers: 1,
   timeout: 100000,
@@ -47,7 +47,7 @@ const config = {
    navigationTimeout: 10000,
    browserName: 'chromium',
    //...devices['iPad Pro 11 landscape'],
-   headless: false,
+   headless: true,
    screenshot: 'only-on-failure',
    //accepts ssl certs related notifications
    ignoreHTTPSErrors: true,
