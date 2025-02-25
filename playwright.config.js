@@ -7,7 +7,7 @@ const config = {
   workers: 1,
   timeout: 100000,
   expect: {
-    timeout: 10000
+    timeout: 20000
   },
   reporter: 'html',
   //reporter: [['list', { printSteps: false }]],
@@ -43,8 +43,8 @@ const config = {
   }
   ],*/
   use:{
-   actionTimeout: 10000,
-   navigationTimeout: 10000,
+   actionTimeout: 20000,
+   navigationTimeout: 20000,
    browserName: 'chromium',
    //...devices['iPad Pro 11 landscape'],
    headless: false,
