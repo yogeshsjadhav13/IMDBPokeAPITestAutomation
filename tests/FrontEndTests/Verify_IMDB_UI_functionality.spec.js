@@ -24,8 +24,12 @@ test.beforeEach(async ({ browser }, testInfo) => {
     context = await browser.newContext();
     page = await context.newPage();
     await page.goto('https://www.imdb.com/');
-    await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
-    await page.locator("//button[text()='Accept']").click();
+    await page.waitForLoadState('load');
+    await page.waitForLoadState('domcontentloaded');
+    if (await page.locator("//div[contains(text(),'Select Your Preferences')]").count() > 0) {
+      await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
+      await page.locator("//button[text()='Accept']").click();
+    }
   }
 });
 
@@ -45,8 +49,12 @@ test('TC001_IMDB_WebTest: Verify IMDB search first upcoming moview with actor na
     context = await browser.newContext();
     page = await context.newPage();
     await page.goto('https://www.imdb.com/');
-    await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
-    await page.locator("//button[text()='Accept']").click();
+    await page.waitForLoadState('load');
+    await page.waitForLoadState('domcontentloaded');
+    if (await page.locator("//div[contains(text(),'Select Your Preferences')]").count() > 0) {
+      await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
+      await page.locator("//button[text()='Accept']").click();
+    }
     await page.locator("//input[@id='suggestion-search']").click();
     await page.locator("//input[@id='suggestion-search']").fill('nicolas cage');
     await page.locator("//div[text()='Nicolas Cage']//ancestor::a").click();
