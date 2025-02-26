@@ -8,13 +8,15 @@ var TestCaseName, context, page;
 
 
 test.beforeAll(async ({ }, testInfo) => {
-  TestCaseName = (testInfo.title).split(":")[0];
-  fs.readdir(screenshotsDir, (err, files) => {
-    if (err) throw err;
-    for (const file of files) {
-      fs.unlinkSync(path.join(screenshotsDir, file));
-    }
-  });
+  if (testInfo.retry < 1) {
+    TestCaseName = (testInfo.title).split(":")[0];
+    fs.readdir(screenshotsDir, (err, files) => {
+      if (err) throw err;
+      for (const file of files) {
+        fs.unlinkSync(path.join(screenshotsDir, file));
+      }
+    });
+  }
 });
 
 
