@@ -1,0 +1,91 @@
+{
+  "cookies": [
+    {
+      "name": "session-id",
+      "value": "130-8593403-2321260",
+      "domain": ".imdb.com",
+      "path": "/",
+      "expires": 1775122651.365184,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "session-id-time",
+      "value": "2082787201l",
+      "domain": ".imdb.com",
+      "path": "/",
+      "expires": 1775122651.365238,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ubid-main",
+      "value": "132-7459192-3185534",
+      "domain": ".imdb.com",
+      "path": "/",
+      "expires": 1775122651.365079,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ad-oo",
+      "value": "0",
+      "domain": ".imdb.com",
+      "path": "/",
+      "expires": 1740692252,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ci",
+      "value": "eyJwdXJwb3NlcyI6W10sInZlbmRvcnMiOltdfQ",
+      "domain": ".imdb.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "csm-hit",
+      "value": "tb:SRKH589SEHWW57R7CTHS+s-SRKH589SEHWW57R7CTHS|1740562653912&t:1740562653912&adb:adblk_no",
+      "domain": "www.imdb.com",
+      "path": "/",
+      "expires": 1770802653,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://www.imdb.com",
+      "localStorage": [
+        {
+          "name": "csm:adb",
+          "value": "adblk_no"
+        },
+        {
+          "name": "csm-hit",
+          "value": "tb:SRKH589SEHWW57R7CTHS+s-SRKH589SEHWW57R7CTHS|1740562653912&t:1740562653912&adb:adblk_no"
+        },
+        {
+          "name": "csa-tabbed-browsing",
+          "value": "{\"lastActive\":{\"visible\":true,\"pid\":\"fmuhdj-tdlehn-5igewt-a0nj5o\",\"tid\":\"fmuhdj-tdlehn-5igewt-a0nj5o\",\"ent\":{\"rid\":\"SRKH589SEHWW57R7CTHS\"}},\"lastInteraction\":{\"id\":\"567ogl-9tjlmx-pichqu-e0nedx\",\"used\":false},\"time\":1740562651338,\"initialized\":true}"
+        },
+        {
+          "name": "csm-bf",
+          "value": "[\"SRKH589SEHWW57R7CTHS\"]"
+        },
+        {
+          "name": "csa-ctoken-SRKH589SEHWW57R7CTHS",
+          "value": "1740566251336"
+        }
+      ]
+    }
+  ]
+}

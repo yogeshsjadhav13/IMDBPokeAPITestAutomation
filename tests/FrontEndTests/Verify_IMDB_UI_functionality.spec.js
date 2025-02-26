@@ -23,15 +23,9 @@ test.beforeAll(async ({ }, testInfo) => {
 test.beforeEach(async ({ browser }, testInfo) => {
   TestCaseName = (testInfo.title).split(":")[0];
   if (TestCaseName !== "TC001_IMDB_WebTest") {
-    context = await browser.newContext();
+    context = await browser.newContext({ storageState: 'resources/cookies.json' });
     page = await context.newPage();
     await page.goto('https://www.imdb.com/');
-    await page.waitForLoadState('load');
-    await page.waitForLoadState('domcontentloaded');
-    if (await page.locator("//div[contains(text(),'Select Your Preferences')]").count() > 0) {
-      await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
-      await page.locator("//button[text()='Accept']").click();
-    }
   }
 });
 
@@ -48,15 +42,9 @@ test('TC001_IMDB_WebTest: Verify IMDB search first upcoming moview with actor na
     } else if (browserList[i] == "webkit") {
       browser = await playwright.webkit.launch({ headless: false });
     }
-    context = await browser.newContext();
-    page = await context.newPage();
+    const context = await browser.newContext({ storageState: 'resources/cookies.json' });
+    const page = await context.newPage();
     await page.goto('https://www.imdb.com/');
-    await page.waitForLoadState('load');
-    await page.waitForLoadState('domcontentloaded');
-    if (await page.locator("//div[contains(text(),'Select Your Preferences')]").count() > 0) {
-      await page.locator("//div[contains(text(),'Select Your Preferences')]").click();
-      await page.locator("//button[text()='Accept']").click();
-    }
     await page.locator("//input[@id='suggestion-search']").click();
     await page.locator("//input[@id='suggestion-search']").fill('nicolas cage');
     await page.locator("//div[text()='Nicolas Cage']//ancestor::a").click();
@@ -76,13 +64,14 @@ test('TC002_IMDB_WebTest: Rate 2nd movie appearing on Top box office', async fun
   await page.locator("//a/span[text()='Top Box Office']").click();
   await page.locator("//ul[contains(@class,'compact-list')]/li[2]//a[contains(@class,'title')]").click();
   await page.locator("//div[contains(@data-testid,'user-rating')]//div[text()='Rate']").first().click();
-  await page.locator("//h6[text()='Rate this']").click();
+  //await page.locator("//h6[text()='Rate this']").click();
   await page.locator("//div[@class='ipc-starbar__touch']").click();
   await page.evaluate(() => {
     document.querySelector('button[aria-label="Rate 5"]').click();
   });
   await page.locator("//button/span[text()='Rate']").click();
   await page.locator("//h1[text()='Sign in']").click();
+  await context.close();
 });
 
 
@@ -99,6 +88,7 @@ test('TC003_IMDB_WebTest: Open 2nd photo of Danny Trejo from Breaking bad under 
   await page.locator("//button[@aria-label='Close Prompt']").click();
   await page.locator("//img[not(contains(@alt,' and ')) and contains(@alt,'Danny Trejo')]/parent::a").nth(1).click();
   await page.screenshot({ path: 'resources/screenshots/Screenshot_DannyTrejo.png', fullPage: true });
+  await context.close();
 });
 
 
@@ -119,6 +109,7 @@ test('TC004_IMDB_WebTest: Open 3rd name from the celebrities list born yesterday
   await page.locator("//button[@data-testid='adv-search-get-results']").click();
   await page.locator("//ul[contains(@class,'metadata-list')]/li[3]//a[contains(@class,'title')]").click();
   await page.screenshot({ path: screenshotsDir + 'Screenshot_3rdCelebrityBornYesterday.png' });
+  await context.close();
 });
 
 
@@ -144,12 +135,6 @@ test('TC005_IMDB_WebTest: Click on first description link from the list of celeb
     await page.locator("//ul[contains(@class,'metadata-list')]/li[1]//div[@data-testid='dli-bio']//a").first().click();
   }
   await page.screenshot({ path: screenshotsDir + 'Screenshot_1stLinkOnCelebrityDescriptionBorn40yearsAgo.png' });
-});
-
-
-
-
-
-test.afterEach(async ({ }) => {
   await context.close();
 });
+
